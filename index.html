@@ -564,7 +564,6 @@
                 padding: 2.5rem;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
             }
             .card-title {
                 font-size: 0.72rem;
@@ -632,9 +631,14 @@
                 gap: 4rem;
                 align-items: start;
             }
-            .about-mountain {
+            .about-photo {
                 width: 200px;
                 height: 200px;
+                border-radius: 50%;
+                object-fit: cover;
+                /*border: 1.5px solid var(--granite);*/
+                box-shadow: 0 0 10px 1.5px rgba(0, 0, 0, 0.1);
+                display: block;
             }
             .about-text .section-title {
                 margin-bottom: 1.2rem;
@@ -892,7 +896,7 @@
                     padding: 2rem 1.5rem;
                 }
                 .outcomes-visual {
-                    height: 300px;
+                    height: 600px;
                 }
             }
         </style>
@@ -1206,49 +1210,19 @@
         <!-- ABOUT -->
         <section class="about reveal" id="about">
             <div class="about-inner">
-                <svg class="about-mountain" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="100" r="96" fill="#dde8ed" stroke="#c8d4da" stroke-width="1.5" />
-                    <clipPath id="cc"><circle cx="100" cy="100" r="96" /></clipPath>
-                    <!-- sky -->
-                    <rect x="4" y="4" width="192" height="192" fill="#b8d4d0" clip-path="url(#cc)" />
-                    <!-- back range -->
-                    <path
-                        d="M0 130 L50 70 L100 108 L150 60 L200 98 L200 200 L0 200Z"
-                        fill="#8db0bd"
-                        clip-path="url(#cc)"
-                    />
-                    <!-- snow caps -->
-                    <path d="M40 113 L50 70 L60 113Z" fill="rgba(240,237,232,0.88)" clip-path="url(#cc)" />
-                    <path d="M140 98 L150 60 L160 98Z" fill="rgba(240,237,232,0.82)" clip-path="url(#cc)" />
-                    <!-- mid range -->
-                    <path
-                        d="M0 155 L40 105 L80 128 L120 94 L160 118 L200 104 L200 200 L0 200Z"
-                        fill="#4a7a8a"
-                        clip-path="url(#cc)"
-                    />
-                    <!-- near range -->
-                    <path
-                        d="M0 175 L30 138 L70 160 L100 138 L130 158 L170 136 L200 154 L200 200 L0 200Z"
-                        fill="#1c2b35"
-                        clip-path="url(#cc)"
-                    />
-                    <!-- trees -->
-                    <path d="M10 175 L17 153 L24 175Z" fill="#0d1a20" clip-path="url(#cc)" />
-                    <path d="M172 170 L179 149 L186 170Z" fill="#0d1a20" clip-path="url(#cc)" />
-                    <circle cx="100" cy="100" r="96" fill="none" stroke="#c8d4da" stroke-width="1.5" />
-                </svg>
+                <img src="/images/me.jpg" alt="Ryan" class="about-photo" />
 
                 <div class="about-text">
                     <div class="section-label">About FarmSoft Studios</div>
-                    <h2 class="section-title">Built here. Focused here.</h2>
+                    <h2 class="section-title"><i>Hello!</i> I'm Ryan.</h2>
                     <p>
                         FarmSoft Studios is a solo consulting practice based in Northern Colorado. It was founded on a
                         simple premise: local businesses that are genuinely good at what they do shouldn't have to drown
                         in the overhead of running a business — and shouldn't need a large agency to fix it.
                     </p>
                     <p>
-                        I work directly with every client. No junior staff, no hand-offs. When you work with FarmSoft
-                        Studios, you get a single point of contact who knows your business, understands your
+                        I work directly with every client. No junior staff, no hand-offs. When you work with me,
+                        you get a single point of contact who knows your business, understands your
                         constraints, and is accountable for the results.
                     </p>
                     <p>
