@@ -66,6 +66,12 @@
                 gap: 0.65rem;
                 text-decoration: none;
             }
+            .nav-logo-img {
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                display: block;
+            }
             .nav-logo-text {
                 font-family: "Cormorant Garamond", serif;
                 font-size: 1.25rem;
@@ -259,6 +265,62 @@
                 font-weight: 300;
             }
 
+            /* STORY */
+            .story {
+                background: var(--snow);
+            }
+            .story-inner {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+            .story-opening {
+                font-family: "Cormorant Garamond", serif;
+                font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+                font-style: italic;
+                font-weight: 600;
+                color: var(--slate);
+                line-height: 1.4;
+                margin-bottom: 2.5rem;
+                border-left: 3px solid var(--lichen);
+                padding-left: 1.5rem;
+            }
+            .story-body p {
+                font-size: 1rem;
+                line-height: 1.9;
+                color: var(--dusk);
+                font-weight: 300;
+                margin-bottom: 1.25rem;
+            }
+            .story-body p:last-child {
+                margin-bottom: 0;
+            }
+            .story-body em {
+                font-style: italic;
+                color: var(--slate);
+                font-weight: 400;
+            }
+            .story-rule {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin: 2.5rem 0 0;
+            }
+            .story-rule::before,
+            .story-rule::after {
+                content: "";
+                flex: 1;
+                height: 1px;
+                background: var(--granite);
+            }
+            .story-rule span {
+                font-size: 0.7rem;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: var(--stone);
+                font-weight: 600;
+                white-space: nowrap;
+            }
+
             /* PROBLEM */
             .problem {
                 background: var(--cloud);
@@ -310,6 +372,42 @@
                 font-size: 0.9rem;
                 line-height: 1.65;
                 color: var(--dusk);
+            }
+
+            /* EXAMPLES STRIP */
+            .examples-strip {
+                background: var(--slate);
+                padding: 3.5rem 4rem;
+            }
+            .examples-strip-inner {
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+            .examples-strip .section-label {
+                color: var(--lichen);
+            }
+            .examples-strip-heading {
+                font-family: "Cormorant Garamond", serif;
+                font-size: clamp(1.3rem, 2vw, 1.7rem);
+                font-weight: 600;
+                color: var(--snow);
+                margin-bottom: 1.5rem;
+                line-height: 1.3;
+            }
+            .examples-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.6rem;
+            }
+            .example-chip {
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(200, 212, 218, 0.18);
+                border-radius: 100px;
+                padding: 0.45rem 1.1rem;
+                font-size: 0.85rem;
+                color: var(--granite);
+                font-weight: 300;
+                letter-spacing: 0.01em;
             }
 
             /* SERVICES */
@@ -721,6 +819,15 @@
                 font-size: 1.1rem;
                 font-weight: 600;
                 color: var(--snow);
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+            }
+            .footer-logo-img {
+                height: 36px;
+                width: 36px;
+                border-radius: 50%;
+                display: block;
             }
             .footer-copy {
                 font-size: 0.78rem;
@@ -794,18 +901,7 @@
         <!-- NAV -->
         <nav>
             <a href="#" class="nav-logo">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="36" height="36" rx="5" fill="rgba(255,255,255,0.07)" />
-                    <path
-                        d="M5 29 L18 9 L31 29Z"
-                        fill="rgba(106,143,75,0.2)"
-                        stroke="#6a8f4b"
-                        stroke-width="1.8"
-                        stroke-linejoin="round"
-                    />
-                    <path d="M14 16 L18 9 L22 16Z" fill="rgba(240,237,232,0.85)" />
-                    <line x1="5" y1="29" x2="31" y2="29" stroke="#6a8f4b" stroke-width="1" opacity="0.45" />
-                </svg>
+                <img src="/images/fss_logo.svg" alt="FarmSoft Studios" class="nav-logo-img" />
                 <span class="nav-logo-text">FarmSoft <span>Studios</span></span>
             </a>
             <div class="nav-right">
@@ -834,6 +930,34 @@
                 </div>
             </div>
         </div>
+
+        <!-- STORY -->
+        <section class="story reveal">
+            <div class="story-inner">
+                <div class="section-label">Sound Like Anyone You Know?</div>
+                <p class="story-opening">
+                    She didn't open her own business to become a different kind of exhausted.
+                </p>
+                <div class="story-body">
+                    <p>
+                        Maria opened her tailoring shop because she was good at it and tired of making someone else
+                        rich. The first year was hard but good. Clients came in nervous and left feeling like
+                        themselves. She loved every minute of it.
+                    </p>
+                    <p>
+                        Then came the quarterly taxes she didn't know she owed, the city license fine, the client who
+                        disputed a charge and won despite a signed agreement. She hired someone to help. Now she's
+                        quietly redoing their work and apologizing for it.
+                    </p>
+                    <p>
+                        These days she's in the shop by 6:45 and rarely out before 7. She still loves the
+                        work — <em>when she gets to do it.</em> But the thing she built to give herself freedom
+                        started feeling like a second boss. One that never takes a day off.
+                    </p>
+                </div>
+                <div class="story-rule"><span>You didn't build this to burn out</span></div>
+            </div>
+        </section>
 
         <!-- PROBLEM -->
         <section class="problem reveal">
@@ -919,6 +1043,30 @@
                             </p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXAMPLES STRIP -->
+        <section class="examples-strip reveal">
+            <div class="examples-strip-inner">
+                <div class="section-label">What This Looks Like</div>
+                <p class="examples-strip-heading">
+                    If someone on your team does it the same way every week, we can probably automate it.
+                </p>
+                <div class="examples-list">
+                    <span class="example-chip">Month-end QuickBooks reconciliation</span>
+                    <span class="example-chip">Data entry into legacy systems</span>
+                    <span class="example-chip">Weekly marketing email drips</span>
+                    <span class="example-chip">Invoice follow-up reminders</span>
+                    <span class="example-chip">New client onboarding emails</span>
+                    <span class="example-chip">Appointment confirmation &amp; reminders</span>
+                    <span class="example-chip">Job status &amp; progress reports</span>
+                    <span class="example-chip">Review request follow-ups</span>
+                    <span class="example-chip">Inventory updates across systems</span>
+                    <span class="example-chip">Weekly sales summaries</span>
+                    <span class="example-chip">Payroll prep &amp; exports</span>
+                    <span class="example-chip">Customer records synced between platforms</span>
                 </div>
             </div>
         </section>
@@ -1206,7 +1354,10 @@
 
         <!-- FOOTER -->
         <footer>
-            <div class="footer-brand">FarmSoft Studios</div>
+            <div class="footer-brand">
+                <img src="/images/fss_logo.svg" alt="FarmSoft Studios" class="footer-logo-img" />
+                FarmSoft Studios
+            </div>
             <div class="footer-copy">© 2026 FarmSoft Studios. Serving Windsor, Fort Collins & Loveland, CO.</div>
             <a href="mailto:hello@farmsoftstudios.com">hello@farmsoftstudios.com</a>
         </footer>

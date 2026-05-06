@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 857 857" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-192,-173)">
+        <path id="Oval" d="M1049,601.5C1049,364.846 857.154,173 620.5,173C383.846,173 192,364.846 192,601.5C192,838.154 383.846,1030 620.5,1030C857.154,1030 1049,838.154 1049,601.5Z" style="fill:white;"/>
+        <g id="FARMSOFT" transform="matrix(1,0,0,1,307.85,707)">
+            <text x="0px" y="0px" style="font-family:'Avenir-Book', 'Avenir';font-size:100px;fill:rgb(100,100,100);">F<tspan x="66.1px 150.7px 226px 331px 402.6px 502px 573.6px " y="0px 0px 0px 0px 0px 0px 0px ">ARMSOFT</tspan></text>
+        </g>
+        <g id="STUDIOS" transform="matrix(1,0,0,1,496.72,763)">
+            <text x="0px" y="0px" style="font-family:'Avenir-Book', 'Avenir';font-size:48px;fill:rgb(45,60,75);">S<tspan x="30.374px 61.613px 98.227px 137.482px 153.84px 197.558px " y="0px 0px 0px 0px 0px 0px ">TUDIOS</tspan></text>
+        </g>
+        <rect id="Rectangle" x="771" y="745" width="90" height="3" style="fill:rgb(100,100,100);"/>
+        <rect id="Rectangle-copy" x="386" y="745" width="90" height="3" style="fill:rgb(100,100,100);"/>
+        <path id="Triangle-copy-2" d="M769,468L595,616L943,616L769,468Z" style="fill:rgb(45,60,75);"/>
+        <path id="Triangle-copy" d="M621,391L381,615L861,615L621,391Z" style="fill:rgb(0,46,75);"/>
+        <path id="Triangle" d="M471.5,468L316,616L627,616L471.5,468Z" style="fill:rgb(45,60,75);"/>
+        <path id="Path" d="M356,599L474,487L478,527L502,550L508,601L460,561L430,584L410,579L356,599Z" style="fill:white;"/>
+        <path id="path1" d="M630,617L519,510L621,412C621,412 627.23,451.46 628,452C628.77,452.54 660.168,480.353 660,481C659.832,481.647 657,514 657,514L767,617L630,617Z" style="fill:white;"/>
+        <path id="path2" d="M744,506L832,585L772,486L744,506Z" style="fill:white;"/>
+        <path id="path3" d="M598,539L639,499C639,499 638.499,527.193 640,528C641.501,528.807 747,617 747,617L690,617L627,544L598,539Z" style="fill:rgb(205,207,210);"/>
+    </g>
+</svg>
