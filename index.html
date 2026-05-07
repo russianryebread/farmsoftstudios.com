@@ -106,6 +106,7 @@
                 font-weight: 600;
                 text-decoration: none;
                 letter-spacing: 0.03em;
+                white-space: nowrap;
                 transition:
                     background 0.2s,
                     transform 0.15s;
@@ -139,11 +140,11 @@
                 inset: 0;
                 background: linear-gradient(
                     to bottom,
-                    rgba(10, 16, 22, 0.25) 0%,
-                    rgba(10, 16, 22, 0.22) 30%,
-                    rgba(10, 16, 22, 0.5) 62%,
-                    rgba(10, 16, 22, 0.8) 82%,
-                    rgba(10, 16, 22, 0.92) 100%
+                    rgba(10, 16, 22, 0.0) 0%,
+                    rgba(10, 16, 22, 0.1) 30%,
+                    rgba(10, 16, 22, 0.3) 62%,
+                    rgba(10, 16, 22, 0.5) 82%,
+                    rgba(10, 16, 22, 0.7) 100%
                 );
             }
             /* No .stars or .mountain-bg SVG needed */
@@ -450,7 +451,8 @@
                 top: 1.5rem;
                 right: 2rem;
             }
-            .service-card h3 {
+            .service-card h3,
+            .service-card .callout {
                 font-family: "Cormorant Garamond", serif;
                 font-size: 1.4rem;
                 font-weight: 700;
@@ -840,6 +842,25 @@
                 color: var(--lichen);
                 text-decoration: none;
             }
+            .footer-social {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            .footer-social a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--stone);
+                transition: color 0.2s;
+            }
+            .footer-social a:hover {
+                color: var(--snow);
+            }
+            .footer-social svg {
+                width: 20px;
+                height: 20px;
+            }
 
             /* REVEAL */
             .reveal {
@@ -911,7 +932,7 @@
             <div class="nav-right">
                 <a href="#services" class="nav-link">What We Do</a>
                 <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-cta">Free Consultation</a>
+                <a href="#contact" class="nav-cta">Free Consult</a>
             </div>
         </nav>
 
@@ -1080,7 +1101,7 @@
             <div class="services-inner">
                 <div class="services-top">
                     <div class="section-label">What We Do</div>
-                    <h2 class="section-title">Two ways we help your business run better</h2>
+                    <h2 class="section-title">Three ways we help your business run better</h2>
                     <p class="section-sub">
                         Whether you need an experienced thinking partner to map out a better way to operate, or a custom
                         tool built to do the heavy lifting for you — we do both.
@@ -1114,6 +1135,24 @@
                             build something that handles it for you.
                         </p>
                         <span class="service-tag">Custom Software</span>
+                    </div>
+                    <div class="service-card" style="grid-column: 1 / -1">
+                        <div class="service-num">03</div>
+                        <h3>Already Built Something with AI? We'll Make It Actually Work.</h3>
+                        <p>
+                            Many business owners have already experimented with AI tools; chatbots, workflow tools
+                            someone else vibe-coded... It kind of works, but not really. The answers are inconsistent. You
+                            are not sure how to get it deployed so others can use it, too. It doesn't know your business.
+                            It worked in the demo but fell apart in real life.
+                        </p>
+                        <p style="margin-top: 0.75rem">
+                            We can take whatever you've built, figure out what it's actually supposed to do, and
+                            make it reliable. No judgment! AI is genuinely hard to get right. 😥
+                        </p>
+                        <p style="margin-top: 0.75rem" class="callout">
+                            That's exactly why we're here.
+                        </p>
+                        <span class="service-tag">AI &amp; Automation Rescue</span>
                     </div>
                     <div class="service-card" style="grid-column: 1 / -1">
                         <div class="service-num">+</div>
@@ -1334,6 +1373,20 @@
             </div>
             <div class="footer-copy">© 2026 FarmSoft Studios. Serving Windsor, Fort Collins & Loveland, CO.</div>
             <a href="mailto:hello@farmsoftstudios.com">hello@farmsoftstudios.com</a>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/profile.php?id=61589296353556" target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect x="2" y="9" width="4" height="12"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                </a>
+            </div>
         </footer>
 
         <script>
