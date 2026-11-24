@@ -12,857 +12,39 @@
             href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito+Sans:wght@300;400;600&display=swap"
             rel="stylesheet"
         />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            slate:   '#1c2b35',
+                            deep:    '#263d4a',
+                            pine:    '#2d5016',
+                            spruce:  '#3d6b20',
+                            lichen:  '#6a8f4b',
+                            snow:    '#f0ede8',
+                            cloud:   '#f8f6f2',
+                            stone:   '#8b9ea8',
+                            granite: '#c8d4da',
+                            amber:   '#c17f3a',
+                            dusk:    '#4a6278',
+                            mist:    '#dde8ed',
+                        },
+                        fontFamily: {
+                            'cormorant': ['"Cormorant Garamond"', 'serif'],
+                            'nunito':    ['"Nunito Sans"', 'sans-serif'],
+                        },
+                    },
+                },
+            }
+        </script>
         <style>
-            *,
-            *::before,
-            *::after {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-
-            :root {
-                --slate: #1c2b35;
-                --deep: #263d4a;
-                --pine: #2d5016;
-                --spruce: #3d6b20;
-                --lichen: #6a8f4b;
-                --snow: #f0ede8;
-                --cloud: #f8f6f2;
-                --stone: #8b9ea8;
-                --granite: #c8d4da;
-                --amber: #c17f3a;
-                --dusk: #4a6278;
-                --mist: #dde8ed;
-            }
-
             html {
                 scroll-behavior: smooth;
             }
-            body {
-                font-family: "Nunito Sans", sans-serif;
-                background: var(--cloud);
-                color: var(--slate);
-                overflow-x: hidden;
-            }
 
-            /* NAV */
-            nav {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                z-index: 200;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 1.1rem 4rem;
-                background: rgba(28, 43, 53, 0.97);
-                backdrop-filter: blur(10px);
-            }
-            .nav-logo {
-                display: flex;
-                align-items: center;
-                gap: 0.65rem;
-                text-decoration: none;
-            }
-            .nav-logo-img {
-                height: 40px;
-                width: 40px;
-                border-radius: 50%;
-                display: block;
-            }
-            .nav-logo-text {
-                font-family: "Cormorant Garamond", serif;
-                font-size: 1.25rem;
-                font-weight: 600;
-                color: var(--snow);
-                letter-spacing: 0.02em;
-            }
-            .nav-logo-text span {
-                color: var(--lichen);
-            }
-            .nav-right {
-                display: flex;
-                align-items: center;
-                gap: 2rem;
-            }
-            .nav-link {
-                color: var(--granite);
-                font-size: 0.85rem;
-                text-decoration: none;
-                letter-spacing: 0.04em;
-                transition: color 0.2s;
-            }
-            .nav-link:hover {
-                color: var(--snow);
-            }
-            .nav-cta {
-                background: var(--lichen);
-                color: #fff;
-                padding: 0.6rem 1.4rem;
-                border-radius: 3px;
-                font-size: 0.85rem;
-                font-weight: 600;
-                text-decoration: none;
-                letter-spacing: 0.03em;
-                white-space: nowrap;
-                transition:
-                    background 0.2s,
-                    transform 0.15s;
-            }
-            .nav-cta:hover {
-                background: var(--pine);
-            }
-
-            /* HERO */
-            .hero {
-                min-height: 100vh;
-                background: var(--slate);
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                overflow: hidden;
-            }
-            /* Real photo background — centered on the misty mountain middle of the image */
-            .hero-photo {
-                position: absolute;
-                inset: 0;
-                background-image: url("/images/longs_meeker.jpg");
-                background-size: cover;
-                background-position: center 50%;
-                background-repeat: no-repeat;
-            }
-            /* Multi-layer overlay: darken overall, heavy gradient at bottom for text legibility */
-            .hero-overlay {
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(
-                    to bottom,
-                    rgba(10, 16, 22, 0.0) 0%,
-                    rgba(10, 16, 22, 0.1) 30%,
-                    rgba(10, 16, 22, 0.3) 62%,
-                    rgba(10, 16, 22, 0.5) 82%,
-                    rgba(10, 16, 22, 0.7) 100%
-                );
-            }
-            /* No .stars or .mountain-bg SVG needed */
-            .mountain-bg {
-                display: none;
-            }
-            .hero-content {
-                position: relative;
-                z-index: 10;
-                padding: 5.5rem;
-                max-width: 820px;
-            }
-            .hero-eyebrow {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.6rem;
-                font-size: 0.75rem;
-                letter-spacing: 0.18em;
-                text-transform: uppercase;
-                color: var(--cloud);
-                font-weight: 600;
-                margin-bottom: 1.5rem;
-            }
-            .hero-eyebrow::before {
-                content: "";
-                display: block;
-                width: 24px;
-                height: 1.5px;
-                background: var(--cloud);
-            }
-            h1 {
-                font-family: "Cormorant Garamond", serif;
-                font-size: clamp(2.8rem, 5.5vw, 5rem);
-                font-weight: 700;
-                line-height: 1.05;
-                color: var(--snow);
-                margin-bottom: 1.5rem;
-            }
-            h1 em {
-                font-style: italic;
-                color: #d4c9b8;
-            }
-            .hero-sub {
-                font-size: 1.05rem;
-                line-height: 1.85;
-                color: var(--granite);
-                max-width: 580px;
-                margin-bottom: 2.5rem;
-                font-weight: 300;
-            }
-            .hero-sub strong {
-                color: var(--snow);
-                font-weight: 600;
-            }
-            .hero-actions {
-                display: flex;
-                gap: 1rem;
-                flex-wrap: wrap;
-            }
-            .btn-primary {
-                background: var(--lichen);
-                color: #fff;
-                padding: 1rem 2.2rem 0.9rem 2.2rem;
-                border-radius: 3px;
-                font-size: 0.95rem;
-                font-weight: 600;
-                letter-spacing: 0.03em;
-                text-decoration: none;
-                transition:
-                    background 0.2s,
-                    transform 0.15s;
-                display: inline-block;
-            }
-            .btn-primary:hover {
-                background: var(--pine);
-                transform: translateY(-2px);
-            }
-            .btn-outline {
-                border: 1.5px solid rgba(200, 212, 218, 0.4);
-                color: var(--snow);
-                padding: 0.9rem 2.2rem;
-                border-radius: 3px;
-                font-size: 0.95rem;
-                font-weight: 400;
-                text-decoration: none;
-                transition: all 0.2s;
-                display: inline-block;
-                background: transparent;
-            }
-            .btn-outline:hover {
-                background: rgba(255, 255, 255, 0.07);
-            }
-
-            /* SECTIONS */
-            section {
-                padding: 6rem 4rem;
-            }
-            .section-label {
-                font-size: 0.72rem;
-                letter-spacing: 0.18em;
-                text-transform: uppercase;
-                color: var(--lichen);
-                font-weight: 600;
-                margin-bottom: 0.8rem;
-            }
-            .section-title {
-                font-family: "Cormorant Garamond", serif;
-                font-size: clamp(2rem, 3.5vw, 3rem);
-                font-weight: 700;
-                color: var(--slate);
-                line-height: 1.15;
-                margin-bottom: 1.2rem;
-            }
-            .section-sub {
-                font-size: 1rem;
-                line-height: 1.8;
-                color: var(--dusk);
-                max-width: 580px;
-                font-weight: 300;
-            }
-
-            /* STORY */
-            .story {
-                background: var(--snow);
-            }
-            .story-inner {
-                max-width: 720px;
-                margin: 0 auto;
-            }
-            .story-opening {
-                font-family: "Cormorant Garamond", serif;
-                font-size: clamp(1.5rem, 2.8vw, 2.1rem);
-                font-style: italic;
-                font-weight: 600;
-                color: var(--slate);
-                line-height: 1.4;
-                margin-bottom: 2.5rem;
-                border-left: 3px solid var(--lichen);
-                padding-left: 1.5rem;
-            }
-            .story-body p {
-                font-size: 1rem;
-                line-height: 1.9;
-                color: var(--dusk);
-                font-weight: 300;
-                margin-bottom: 1.25rem;
-            }
-            .story-body p:last-child {
-                margin-bottom: 0;
-            }
-            .story-body em {
-                font-style: italic;
-                color: var(--slate);
-                font-weight: 400;
-            }
-            .story-rule {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                margin: 2.5rem 0 0;
-            }
-            .story-rule::before,
-            .story-rule::after {
-                content: "";
-                flex: 1;
-                height: 1px;
-                background: var(--granite);
-            }
-            .story-rule span {
-                font-size: 0.7rem;
-                letter-spacing: 0.2em;
-                text-transform: uppercase;
-                color: var(--stone);
-                font-weight: 600;
-                white-space: nowrap;
-            }
-
-            /* PROBLEM */
-            .problem {
-                background: var(--cloud);
-            }
-            .problem-inner {
-                max-width: 1100px;
-                margin: 0 auto;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 5rem;
-                align-items: start;
-            }
-            .problem-list {
-                margin-top: 0.5rem;
-            }
-            .problem-item {
-                display: flex;
-                gap: 1.2rem;
-                align-items: flex-start;
-                padding: 1.4rem 0;
-                border-bottom: 1px solid var(--granite);
-            }
-            .problem-item:last-child {
-                border-bottom: none;
-            }
-            .problem-icon {
-                flex-shrink: 0;
-                width: 42px;
-                height: 42px;
-                border-radius: 50%;
-                background: var(--mist);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .problem-icon svg {
-                width: 20px;
-                height: 20px;
-                color: var(--dusk);
-            }
-            .problem-item h3 {
-                font-family: "Cormorant Garamond", serif;
-                font-size: 1.15rem;
-                font-weight: 600;
-                color: var(--slate);
-                margin-bottom: 0.3rem;
-            }
-            .problem-item p {
-                font-size: 0.9rem;
-                line-height: 1.65;
-                color: var(--dusk);
-            }
-
-            /* EXAMPLES STRIP */
-            .examples-strip {
-                background: var(--slate);
-                padding: 3.5rem 4rem;
-            }
-            .examples-strip-inner {
-                max-width: 1100px;
-                margin: 0 auto;
-            }
-            .examples-strip .section-label {
-                color: var(--lichen);
-            }
-            .examples-strip-heading {
-                font-family: "Cormorant Garamond", serif;
-                font-size: clamp(1.3rem, 2vw, 1.7rem);
-                font-weight: 600;
-                color: var(--snow);
-                margin-bottom: 1.5rem;
-                line-height: 1.3;
-            }
-            .examples-list {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 0.6rem;
-            }
-            .example-chip {
-                background: rgba(255, 255, 255, 0.06);
-                border: 1px solid rgba(200, 212, 218, 0.18);
-                border-radius: 100px;
-                padding: 0.45rem 1.1rem;
-                font-size: 0.85rem;
-                color: var(--granite);
-                font-weight: 300;
-                letter-spacing: 0.01em;
-            }
-
-            /* SERVICES */
-            .services {
-                background: var(--snow);
-            }
-            .services-inner {
-                max-width: 1100px;
-                margin: 0 auto;
-            }
-            .services-top {
-                margin-bottom: 3.5rem;
-            }
-            .services-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1.5rem;
-            }
-            .service-card {
-                border: 1px solid var(--granite);
-                border-radius: 6px;
-                padding: 2.2rem;
-                background: var(--cloud);
-                transition:
-                    transform 0.25s,
-                    box-shadow 0.25s;
-                position: relative;
-            }
-            .service-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 16px 48px rgba(28, 43, 53, 0.1);
-            }
-            .service-num {
-                font-family: "Cormorant Garamond", serif;
-                font-size: 3.5rem;
-                font-weight: 700;
-                color: var(--granite);
-                line-height: 1;
-                position: absolute;
-                top: 1.5rem;
-                right: 2rem;
-            }
-            .service-card h3,
-            .service-card .callout {
-                font-family: "Cormorant Garamond", serif;
-                font-size: 1.4rem;
-                font-weight: 700;
-                color: var(--slate);
-                margin-bottom: 0.7rem;
-                line-height: 1.2;
-            }
-            .service-card p {
-                font-size: 0.9rem;
-                line-height: 1.75;
-                color: var(--dusk);
-            }
-            .service-tag {
-                display: inline-block;
-                margin-top: 1.2rem;
-                background: var(--mist);
-                color: var(--dusk);
-                font-size: 0.72rem;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                padding: 0.3rem 0.7rem;
-                border-radius: 2px;
-                font-weight: 600;
-            }
-
-            /* HOW */
-            .how {
-                background: var(--slate);
-            }
-            .how .section-label {
-                color: var(--lichen);
-            }
-            .how .section-title {
-                color: var(--snow);
-            }
-            .how .section-sub {
-                color: var(--granite);
-            }
-            .how-inner {
-                max-width: 1000px;
-                margin: 0 auto;
-            }
-            .steps {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0;
-                margin-top: 3.5rem;
-                border: 1px solid rgba(200, 212, 218, 0.15);
-                border-radius: 6px;
-                overflow: hidden;
-            }
-            .step {
-                padding: 2.5rem 2rem;
-                border-right: 1px solid rgba(200, 212, 218, 0.15);
-            }
-            .step:last-child {
-                border-right: none;
-            }
-            .step-num {
-                font-family: "Cormorant Garamond", serif;
-                font-size: 4rem;
-                font-weight: 700;
-                color: rgba(106, 143, 75, 0.3);
-                line-height: 1;
-                margin-bottom: 1rem;
-            }
-            .step h3 {
-                font-family: "Cormorant Garamond", serif;
-                font-size: 1.25rem;
-                font-weight: 600;
-                color: var(--snow);
-                margin-bottom: 0.6rem;
-            }
-            .step p {
-                font-size: 0.88rem;
-                line-height: 1.7;
-                color: var(--granite);
-                font-weight: 300;
-            }
-
-            /* OUTCOMES */
-            .outcomes {
-                background: var(--cloud);
-            }
-            .outcomes-inner {
-                max-width: 1100px;
-                margin: 0 auto;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 5rem;
-                align-items: center;
-            }
-            .outcomes-visual {
-                position: relative;
-                height: 515px;
-            }
-            .outcomes-card-back {
-                position: absolute;
-                top: 20px;
-                left: 20px;
-                right: -20px;
-                bottom: -20px;
-                background: var(--mist);
-                border-radius: 8px;
-            }
-            .outcomes-card-front {
-                position: absolute;
-                inset: 0;
-                background: var(--slate);
-                border-radius: 8px;
-                padding: 2.5rem;
-                display: flex;
-                flex-direction: column;
-            }
-            .card-title {
-                font-size: 0.72rem;
-                letter-spacing: 0.15em;
-                text-transform: uppercase;
-                color: var(--lichen);
-                font-weight: 600;
-                margin-bottom: 0.4rem;
-            }
-            .card-heading {
-                font-family: "Cormorant Garamond", serif;
-                font-size: 1.7rem;
-                color: var(--snow);
-                font-weight: 700;
-                line-height: 1.2;
-            }
-            .outcome-list {
-                list-style: none;
-            }
-            .outcome-list li {
-                display: flex;
-                align-items: flex-start;
-                gap: 0.75rem;
-                padding: 0.65rem 0;
-                border-bottom: 1px solid rgba(200, 212, 218, 0.12);
-                font-size: 0.88rem;
-                color: var(--granite);
-                font-weight: 300;
-                line-height: 1.5;
-            }
-            .outcome-list li:last-child {
-                border-bottom: none;
-            }
-            .outcome-list li::before {
-                content: "→";
-                color: var(--lichen);
-                flex-shrink: 0;
-                font-size: 0.85rem;
-                margin-top: 0.05rem;
-            }
-            .outcomes-text .section-title {
-                margin-bottom: 1.2rem;
-            }
-            .outcomes-text p {
-                font-size: 1rem;
-                line-height: 1.8;
-                color: var(--dusk);
-                margin-bottom: 1rem;
-                font-weight: 300;
-            }
-            .outcomes-text p strong {
-                color: var(--slate);
-                font-weight: 600;
-            }
-
-            /* ABOUT */
-            .about {
-                background: var(--snow);
-            }
-            .about-inner {
-                max-width: 900px;
-                margin: 0 auto;
-                display: grid;
-                grid-template-columns: 200px 1fr;
-                gap: 4rem;
-                align-items: start;
-            }
-            .about-photo {
-                width: 200px;
-                height: 200px;
-                border-radius: 50%;
-                object-fit: cover;
-                /*border: 1.5px solid var(--granite);*/
-                box-shadow: 0 0 10px 1.5px rgba(0, 0, 0, 0.1);
-                display: block;
-            }
-            .about-text .section-title {
-                margin-bottom: 1.2rem;
-            }
-            .about-text p {
-                font-size: 1rem;
-                line-height: 1.85;
-                color: var(--dusk);
-                margin-bottom: 1rem;
-                font-weight: 300;
-            }
-            .location-pill {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.45rem;
-                background: var(--mist);
-                border-radius: 20px;
-                padding: 0.4rem 1rem;
-                font-size: 0.8rem;
-                color: var(--dusk);
-                font-weight: 600;
-                margin-top: 0.5rem;
-            }
-            .location-pill svg {
-                width: 13px;
-                height: 13px;
-                color: var(--lichen);
-            }
-
-            /* CONTACT */
-            .contact {
-                background: var(--slate);
-            }
-            .contact-inner {
-                max-width: 720px;
-                margin: 0 auto;
-            }
-            .contact .section-label {
-                color: var(--lichen);
-            }
-            .contact .section-title {
-                color: var(--snow);
-            }
-            .contact-sub {
-                font-size: 1rem;
-                line-height: 1.8;
-                color: var(--granite);
-                font-weight: 300;
-                margin-bottom: 2rem;
-            }
-            .free-badge {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.5rem;
-                background: rgba(193, 127, 58, 0.15);
-                border: 1px solid rgba(193, 127, 58, 0.4);
-                border-radius: 3px;
-                padding: 0.5rem 1rem;
-                color: #d4943f;
-                font-size: 0.82rem;
-                font-weight: 600;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-                margin-bottom: 1.5rem;
-            }
-            .free-badge svg {
-                width: 14px;
-                height: 14px;
-            }
-            .form-row {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-            }
-            .form-group {
-                display: flex;
-                flex-direction: column;
-                gap: 0.4rem;
-                margin-bottom: 1rem;
-            }
-            .form-group label {
-                font-size: 0.78rem;
-                font-weight: 600;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-                color: var(--granite);
-            }
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                border: 1px solid rgba(200, 212, 218, 0.2);
-                border-radius: 3px;
-                padding: 0.8rem 1rem;
-                font-family: "Nunito Sans", sans-serif;
-                font-size: 0.95rem;
-                color: var(--snow);
-                background: rgba(255, 255, 255, 0.06);
-                transition:
-                    border-color 0.2s,
-                    box-shadow 0.2s;
-                outline: none;
-                width: 100%;
-            }
-            .form-group input::placeholder,
-            .form-group textarea::placeholder {
-                color: var(--stone);
-                opacity: 0.7;
-            }
-            .form-group select option {
-                background: var(--deep);
-                color: var(--snow);
-            }
-            .form-group input:focus,
-            .form-group select:focus,
-            .form-group textarea:focus {
-                border-color: var(--lichen);
-                box-shadow: 0 0 0 3px rgba(106, 143, 75, 0.18);
-            }
-            .form-group textarea {
-                resize: vertical;
-                min-height: 120px;
-            }
-            .form-submit {
-                width: 100%;
-                padding: 1rem;
-                background: var(--lichen);
-                color: #fff;
-                border: none;
-                border-radius: 3px;
-                font-family: "Nunito Sans", sans-serif;
-                font-size: 1rem;
-                font-weight: 700;
-                letter-spacing: 0.04em;
-                cursor: pointer;
-                margin-top: 0.5rem;
-                transition:
-                    background 0.2s,
-                    transform 0.15s;
-            }
-            .form-submit:hover {
-                background: var(--pine);
-                transform: translateY(-1px);
-            }
-            .form-note {
-                text-align: center;
-                font-size: 0.78rem;
-                color: var(--stone);
-                margin-top: 0.75rem;
-            }
-            .success-msg {
-                display: none;
-                background: rgba(106, 143, 75, 0.12);
-                border: 1px solid rgba(106, 143, 75, 0.35);
-                border-radius: 6px;
-                padding: 2.5rem;
-                text-align: center;
-            }
-            .success-msg h3 {
-                font-family: "Cormorant Garamond", serif;
-                font-size: 1.6rem;
-                color: var(--snow);
-                margin-bottom: 0.6rem;
-            }
-            .success-msg p {
-                color: var(--granite);
-                font-weight: 300;
-            }
-
-            /* FOOTER */
-            footer {
-                background: #111d24;
-                color: var(--stone);
-                padding: 2rem 4rem;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            .footer-brand {
-                font-family: "Cormorant Garamond", serif;
-                font-size: 1.1rem;
-                font-weight: 600;
-                color: var(--snow);
-                display: flex;
-                align-items: center;
-                gap: 0.6rem;
-            }
-            .footer-logo-img {
-                height: 36px;
-                width: 36px;
-                border-radius: 50%;
-                display: block;
-            }
-            .footer-copy {
-                font-size: 0.78rem;
-            }
-            footer a {
-                color: var(--lichen);
-                text-decoration: none;
-            }
-            .footer-social {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-            }
-            .footer-social a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: var(--stone);
-                transition: color 0.2s;
-            }
-            .footer-social a:hover {
-                color: var(--snow);
-            }
-            .footer-social svg {
-                width: 20px;
-                height: 20px;
-            }
-
-            /* REVEAL */
+            /* REVEAL ANIMATION */
             .reveal {
                 opacity: 0;
                 transform: translateY(28px);
@@ -874,163 +56,105 @@
                 opacity: 1;
                 transform: none;
             }
-
-            /* RESPONSIVE */
-            @media (max-width: 960px) {
-                nav {
-                    padding: 1rem 1.5rem;
-                }
-                .nav-right .nav-link {
-                    display: none;
-                }
-                section {
-                    padding: 4rem 1.5rem;
-                }
-                .hero-content {
-                    padding: 0 1.5rem 4rem;
-                }
-                .problem-inner,
-                .outcomes-inner,
-                .about-inner {
-                    grid-template-columns: 1fr;
-                    gap: 2rem;
-                }
-                .services-grid {
-                    grid-template-columns: 1fr;
-                }
-                .steps {
-                    grid-template-columns: 1fr;
-                }
-                .step {
-                    border-right: none;
-                    border-bottom: 1px solid rgba(200, 212, 218, 0.15);
-                }
-                .step:last-child {
-                    border-bottom: none;
-                }
-                .form-row {
-                    grid-template-columns: 1fr;
-                }
-                footer {
-                    flex-direction: column;
-                    text-align: center;
-                    padding: 2rem 1.5rem;
-                }
-                .outcomes-visual {
-                    height: 600px;
-                }
-            }
         </style>
     </head>
-    <body>
+    <body class="font-nunito bg-cloud text-slate overflow-x-hidden">
         <!-- NAV -->
-        <nav>
-            <a href="#" class="nav-logo">
-                <img src="/images/fss_logo.svg" alt="FarmSoft Studios" class="nav-logo-img" />
-                <span class="nav-logo-text">FarmSoft <span>Studios</span></span>
+        <nav class="fixed top-0 left-0 right-0 z-[200] flex items-center justify-between px-4 md:px-16 py-[1.1rem] bg-[rgba(28,43,53,0.97)] backdrop-blur-[10px]">
+            <a href="#" class="flex items-center gap-[0.65rem] no-underline">
+                <img src="/images/fss_logo.svg" alt="FarmSoft Studios" class="h-10 w-10 rounded-full block" />
+                <span class="font-cormorant text-xl font-semibold text-snow tracking-[0.02em]">FarmSoft <span class="text-lichen">Studios</span></span>
             </a>
-            <div class="nav-right">
-                <a href="#services" class="nav-link">What We Do</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-cta">Free Consult</a>
+            <div class="flex items-center gap-8">
+                <a href="#services" class="text-granite text-[0.85rem] no-underline tracking-[0.04em] transition-colors duration-200 hover:text-snow max-[960px]:hidden">What We Do</a>
+                <a href="#about" class="text-granite text-[0.85rem] no-underline tracking-[0.04em] transition-colors duration-200 hover:text-snow max-[960px]:hidden">About</a>
+                <a href="#contact" class="bg-lichen text-white px-[1.4rem] py-[0.6rem] rounded-[3px] text-[0.85rem] font-semibold no-underline tracking-[0.03em] whitespace-nowrap transition-colors duration-200 hover:bg-pine">Free Consult</a>
             </div>
         </nav>
 
         <!-- HERO -->
-        <div class="hero">
-            <div class="hero-photo"></div>
-            <div class="hero-overlay"></div>
+        <div class="min-h-screen bg-slate relative flex flex-col justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-[url('/images/longs_meeker.jpg')] bg-cover bg-[center_50%] bg-no-repeat"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-[rgba(10,16,22,0.0)] via-[rgba(10,16,22,0.3)] to-[rgba(10,16,22,0.7)]" style="background: linear-gradient(to bottom, rgba(10,16,22,0.0) 0%, rgba(10,16,22,0.1) 30%, rgba(10,16,22,0.3) 62%, rgba(10,16,22,0.5) 82%, rgba(10,16,22,0.7) 100%)"></div>
 
-            <div class="hero-content">
-                <div class="hero-eyebrow">Serving Windsor · Fort Collins · Loveland, Colorado</div>
-                <h1>Your business deserves more of <em>your</em> attention.</h1>
-                <p class="hero-sub">
+            <div class="relative z-10 p-[5.5rem] max-w-[820px] max-[960px]:px-6 max-[960px]:pb-16 max-[960px]:pt-0">
+                <div class="inline-flex items-center gap-[0.6rem] text-[0.75rem] tracking-[0.18em] uppercase text-cloud font-semibold mb-6 before:content-[''] before:block before:w-6 before:h-[1.5px] before:bg-cloud">Serving Windsor · Fort Collins · Loveland, Colorado</div>
+                <h1 class="font-cormorant text-[clamp(2.8rem,5.5vw,5rem)] font-bold leading-[1.05] text-snow mb-6">Your business deserves more of <em class="italic text-[#d4c9b8]">your</em> attention.</h1>
+                <p class="text-[1.05rem] leading-[1.85] text-granite max-w-[580px] mb-10 font-light">
                     You didn't start your business to spend your days on scheduling, admin, and paperwork.
-                    <strong>FarmSoft Studios helps local businesses take back their time</strong> — through expert
+                    <strong class="text-snow font-semibold">FarmSoft Studios helps local businesses take back their time</strong> — through expert
                     consulting and custom-built tools tailored to how you actually work.
                 </p>
-                <div class="hero-actions">
-                    <a href="#contact" class="btn-primary">Book a Free Consultation Call</a>
-                    <a href="#services" class="btn-outline">See How We Help</a>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="#contact" class="bg-lichen text-white pt-4 pb-[0.9rem] px-[2.2rem] rounded-[3px] text-[0.95rem] font-semibold tracking-[0.03em] no-underline transition-all duration-200 hover:bg-pine hover:-translate-y-0.5 inline-block">Book a Free Consultation Call</a>
+                    <a href="#services" class="border border-[rgba(200,212,218,0.4)] text-snow py-[0.9rem] px-[2.2rem] rounded-[3px] text-[0.95rem] font-normal no-underline transition-all duration-200 hover:bg-[rgba(255,255,255,0.07)] inline-block bg-transparent">See How We Help</a>
                 </div>
             </div>
         </div>
 
         <!-- STORY -->
-        <section class="story reveal">
-            <div class="story-inner">
-                <div class="section-label">Sound Like Anyone You Know?</div>
-                <p class="story-opening">
+        <section class="story reveal bg-snow px-16 py-24 max-[960px]:px-6 max-[960px]:py-16">
+            <div class="max-w-[720px] mx-auto">
+                <div class="text-[0.72rem] tracking-[0.18em] uppercase text-lichen font-semibold mb-[0.8rem]">Sound Like Anyone You Know?</div>
+                <p class="font-cormorant text-[clamp(1.5rem,2.8vw,2.1rem)] italic font-semibold text-slate leading-[1.4] mb-10 border-l-[3px] border-lichen pl-6">
                     She didn't start her business to spend Sunday nights doing data entry.
                 </p>
-                <div class="story-body">
-                    <p>
+                <div>
+                    <p class="text-[1rem] leading-[1.9] text-dusk font-light mb-5">
                         Jane built her landscaping company from two neighbors and a pickup truck. Six years later she
                         has a full crew and a solid reputation....and a list of manual tasks that grows faster than her
                         business does. Every week she exports her schedule from the legacy scheduling app and re-keys
                         the jobs into QuickBooks by hand because the two apps don't talk to each other. Every month she
                         pulls numbers from three different places and builds the same report over again.
                     </p>
-                    <p>
+                    <p class="text-[1rem] leading-[1.9] text-dusk font-light mb-5">
                         She hired an agent to help with the office side, but now she spends Friday mornings checking their
                         data entry instead of growing the business.
                     </p>
-                    <p>
+                    <p class="text-[1rem] leading-[1.9] text-dusk font-light">
                         The work she loves is still there. But it's buried under hours of tasks that feel like they
-                        should just <em>happen on their own</em> — and she's never quite sure why they don't.
+                        should just <em class="italic text-slate font-normal">happen on their own</em> — and she's never quite sure why they don't.
                     </p>
                 </div>
-                <div class="story-rule"><span>Most of it can be automated</span></div>
+                <div class="flex items-center gap-4 mt-10 before:content-[''] before:flex-1 before:h-px before:bg-granite after:content-[''] after:flex-1 after:h-px after:bg-granite">
+                    <span class="text-[0.7rem] tracking-[0.2em] uppercase text-stone font-semibold whitespace-nowrap">Most of it can be automated</span>
+                </div>
             </div>
         </section>
 
         <!-- PROBLEM -->
-        <section class="problem reveal">
-            <div class="problem-inner">
+        <section class="problem reveal bg-cloud px-16 py-24 max-[960px]:px-6 max-[960px]:py-16">
+            <div class="max-w-[1100px] mx-auto grid grid-cols-2 gap-20 items-start max-[960px]:grid-cols-1 max-[960px]:gap-8">
                 <div>
-                    <div class="section-label">Sound Familiar?</div>
-                    <h2 class="section-title">
+                    <div class="text-[0.72rem] tracking-[0.18em] uppercase text-lichen font-semibold mb-[0.8rem]">Sound Familiar?</div>
+                    <h2 class="font-cormorant text-[clamp(2rem,3.5vw,3rem)] font-bold text-slate leading-[1.15] mb-5">
                         You're great at your craft. The business side keeps getting in the way.
                     </h2>
-                    <p class="section-sub">
+                    <p class="text-[1rem] leading-[1.8] text-dusk max-w-[580px] font-light">
                         Every hour you spend on things that aren't your core work is an hour you're not serving
                         customers, building relationships, or doing what you're actually great at. You shouldn't have to
                         choose between running a business and running your business well.
                     </p>
                 </div>
-                <div class="problem-list">
-                    <div class="problem-item">
-                        <div class="problem-icon">
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
+                <div class="mt-2">
+                    <div class="flex gap-5 items-start py-[1.4rem] border-b border-granite">
+                        <div class="shrink-0 w-[42px] h-[42px] rounded-full bg-mist flex items-center justify-center">
+                            <svg class="w-5 h-5 text-dusk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10" />
                                 <polyline points="12 6 12 12 16 14" />
                             </svg>
                         </div>
                         <div>
-                            <h3>Time you don't have</h3>
-                            <p>
+                            <h3 class="font-cormorant text-[1.15rem] font-semibold text-slate mb-[0.3rem]">Time you don't have</h3>
+                            <p class="text-[0.9rem] leading-[1.65] text-dusk">
                                 Answering the same questions, following up on leads, chasing invoices — it's relentless,
                                 and it's not why you started this thing.
                             </p>
                         </div>
                     </div>
-                    <div class="problem-item">
-                        <div class="problem-icon">
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
+                    <div class="flex gap-5 items-start py-[1.4rem] border-b border-granite">
+                        <div class="shrink-0 w-[42px] h-[42px] rounded-full bg-mist flex items-center justify-center">
+                            <svg class="w-5 h-5 text-dusk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                                 <polyline points="14 2 14 8 20 8" />
                                 <line x1="16" y1="13" x2="8" y2="13" />
@@ -1038,31 +162,24 @@
                             </svg>
                         </div>
                         <div>
-                            <h3>Processes that don't scale</h3>
-                            <p>
+                            <h3 class="font-cormorant text-[1.15rem] font-semibold text-slate mb-[0.3rem]">Processes that don't scale</h3>
+                            <p class="text-[0.9rem] leading-[1.65] text-dusk">
                                 What worked for five customers breaks down at fifty. Manual systems become bottlenecks
                                 that hold your growth back.
                             </p>
                         </div>
                     </div>
-                    <div class="problem-item">
-                        <div class="problem-icon">
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
+                    <div class="flex gap-5 items-start py-[1.4rem]">
+                        <div class="shrink-0 w-[42px] h-[42px] rounded-full bg-mist flex items-center justify-center">
+                            <svg class="w-5 h-5 text-dusk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10" />
                                 <line x1="12" y1="8" x2="12" y2="12" />
                                 <line x1="12" y1="16" x2="12.01" y2="16" />
                             </svg>
                         </div>
                         <div>
-                            <h3>Generic advice that doesn't fit</h3>
-                            <p>
+                            <h3 class="font-cormorant text-[1.15rem] font-semibold text-slate mb-[0.3rem]">Generic advice that doesn't fit</h3>
+                            <p class="text-[0.9rem] leading-[1.65] text-dusk">
                                 Cookie-cutter consultants give cookie-cutter answers. You need someone who understands
                                 your business and gives you a plan you can actually use.
                             </p>
@@ -1073,132 +190,132 @@
         </section>
 
         <!-- EXAMPLES STRIP -->
-        <section class="examples-strip reveal">
-            <div class="examples-strip-inner">
-                <div class="section-label">What This Looks Like</div>
-                <p class="examples-strip-heading">
+        <section class="examples-strip reveal bg-slate px-16 py-14 max-[960px]:px-6 max-[960px]:py-14">
+            <div class="max-w-[1100px] mx-auto">
+                <div class="text-[0.72rem] tracking-[0.18em] uppercase text-lichen font-semibold mb-[0.8rem]">What This Looks Like</div>
+                <p class="font-cormorant text-[clamp(1.3rem,2vw,1.7rem)] font-semibold text-snow mb-6 leading-[1.3]">
                     If someone on your team does it the same way every week, we can probably automate it.
                 </p>
-                <div class="examples-list">
-                    <span class="example-chip">Month-end QuickBooks reconciliation</span>
-                    <span class="example-chip">Data entry into legacy systems</span>
-                    <span class="example-chip">Weekly marketing email drips</span>
-                    <span class="example-chip">Invoice follow-up reminders</span>
-                    <span class="example-chip">New client onboarding emails</span>
-                    <span class="example-chip">Appointment confirmation &amp; reminders</span>
-                    <span class="example-chip">Job status &amp; progress reports</span>
-                    <span class="example-chip">Review request follow-ups</span>
-                    <span class="example-chip">Inventory updates across systems</span>
-                    <span class="example-chip">Weekly sales summaries</span>
-                    <span class="example-chip">Payroll prep &amp; exports</span>
-                    <span class="example-chip">Customer records synced between platforms</span>
+                <div class="flex flex-wrap gap-[0.6rem]">
+                    <span class="bg-[rgba(255,255,255,0.06)] border border-[rgba(200,212,218,0.18)] rounded-full px-[1.1rem] py-[0.45rem] text-[0.85rem] text-granite font-light tracking-[0.01em]">Month-end QuickBooks reconciliation</span>
+                    <span class="bg-[rgba(255,255,255,0.06)] border border-[rgba(200,212,218,0.18)] rounded-full px-[1.1rem] py-[0.45rem] text-[0.85rem] text-granite font-light tracking-[0.01em]">Data entry into legacy systems</span>
+                    <span class="bg-[rgba(255,255,255,0.06)] border border-[rgba(200,212,218,0.18)] rounded-full px-[1.1rem] py-[0.45rem] text-[0.85rem] text-granite font-light tracking-[0.01em]">Weekly marketing email drips</span>
+                    <span class="bg-[rgba(255,255,255,0.06)] border border-[rgba(200,212,218,0.18)] rounded-full px-[1.1rem] py-[0.45rem] text-[0.85rem] text-granite font-light tracking-[0.01em]">Invoice follow-up reminders</span>
+                    <span class="bg-[rgba(255,255,255,0.06)] border border-[rgba(200,212,218,0.18)] rounded-full px-[1.1rem] py-[0.45rem] text-[0.85rem] text-granite font-light tracking-[0.01em]">New client onboarding emails</span>
+                    <span class="bg-[rgba(255,255,255,0.06)] border border-[rgba(200,212,218,0.18)] rounded-full px-[1.1rem] py-[0.45rem] text-[0.85rem] text-granite font-light tracking-[0.01em]">Appointment confirmation &amp; reminders</span>
+                    <span class="bg-[rgba(255,255,255,0.06)] border border-[rgba(200,212,218,0.18)] rounded-full px-[1.1rem] py-[0.45rem] text-[0.85rem] text-granite font-light tracking-[0.01em]">Job status &amp; progress reports</span>
+                    <span class="bg-[rgba(255,255,255,0.06)] border border-[rgba(200,212,218,0.18)] rounded-full px-[1.1rem] py-[0.45rem] text-[0.85rem] text-granite font-light tracking-[0.01em]">Review request follow-ups</span>
+                    <span class="bg-[rgba(255,255,255,0.06)] border border-[rgba(200,212,218,0.18)] rounded-full px-[1.1rem] py-[0.45rem] text-[0.85rem] text-granite font-light tracking-[0.01em]">Inventory updates across systems</span>
+                    <span class="bg-[rgba(255,255,255,0.06)] border border-[rgba(200,212,218,0.18)] rounded-full px-[1.1rem] py-[0.45rem] text-[0.85rem] text-granite font-light tracking-[0.01em]">Weekly sales summaries</span>
+                    <span class="bg-[rgba(255,255,255,0.06)] border border-[rgba(200,212,218,0.18)] rounded-full px-[1.1rem] py-[0.45rem] text-[0.85rem] text-granite font-light tracking-[0.01em]">Payroll prep &amp; exports</span>
+                    <span class="bg-[rgba(255,255,255,0.06)] border border-[rgba(200,212,218,0.18)] rounded-full px-[1.1rem] py-[0.45rem] text-[0.85rem] text-granite font-light tracking-[0.01em]">Customer records synced between platforms</span>
                 </div>
             </div>
         </section>
 
         <!-- SERVICES -->
-        <section class="services reveal" id="services">
-            <div class="services-inner">
-                <div class="services-top">
-                    <div class="section-label">What We Do</div>
-                    <h2 class="section-title">Three ways we help your business run better</h2>
-                    <p class="section-sub">
+        <section class="services reveal bg-snow px-16 py-24 max-[960px]:px-6 max-[960px]:py-16" id="services">
+            <div class="max-w-[1100px] mx-auto">
+                <div class="mb-14">
+                    <div class="text-[0.72rem] tracking-[0.18em] uppercase text-lichen font-semibold mb-[0.8rem]">What We Do</div>
+                    <h2 class="font-cormorant text-[clamp(2rem,3.5vw,3rem)] font-bold text-slate leading-[1.15] mb-5">Three ways we help your business run better</h2>
+                    <p class="text-[1rem] leading-[1.8] text-dusk max-w-[580px] font-light">
                         Whether you need an experienced thinking partner to map out a better way to operate, or a custom
                         tool built to do the heavy lifting for you — we do both.
                     </p>
                 </div>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-num">01</div>
-                        <h3>Business Operations Consulting</h3>
-                        <p>
+                <div class="grid grid-cols-2 gap-6 max-[960px]:grid-cols-1">
+                    <div class="border border-granite rounded-[6px] p-[2.2rem] bg-cloud transition-all duration-[250ms] hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(28,43,53,0.1)] relative">
+                        <div class="font-cormorant text-[3.5rem] font-bold text-granite leading-none absolute top-6 right-8">01</div>
+                        <h3 class="font-cormorant text-[1.4rem] font-bold text-slate mb-[0.7rem] leading-[1.2]">Business Operations Consulting</h3>
+                        <p class="text-[0.9rem] leading-[1.75] text-dusk">
                             We sit down with you, understand how your business actually works day-to-day, and find the
                             specific places where time is being lost and opportunities are being missed. You'll walk
                             away with a clear, prioritized picture of what to improve — and a practical plan to do it.
                         </p>
-                        <p style="margin-top: 0.75rem">
+                        <p class="text-[0.9rem] leading-[1.75] text-dusk mt-3">
                             No jargon. No 40-page reports. Just honest, experienced guidance from someone who is
                             genuinely invested in your success.
                         </p>
-                        <span class="service-tag">Consulting</span>
+                        <span class="inline-block mt-5 bg-mist text-dusk text-[0.72rem] tracking-[0.08em] uppercase px-[0.7rem] py-[0.3rem] rounded-[2px] font-semibold">Consulting</span>
                     </div>
-                    <div class="service-card">
-                        <div class="service-num">02</div>
-                        <h3>Custom Business Applications</h3>
-                        <p>
+                    <div class="border border-granite rounded-[6px] p-[2.2rem] bg-cloud transition-all duration-[250ms] hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(28,43,53,0.1)] relative">
+                        <div class="font-cormorant text-[3.5rem] font-bold text-granite leading-none absolute top-6 right-8">02</div>
+                        <h3 class="font-cormorant text-[1.4rem] font-bold text-slate mb-[0.7rem] leading-[1.2]">Custom Business Applications</h3>
+                        <p class="text-[0.9rem] leading-[1.75] text-dusk">
                             Sometimes the right answer is a tool built specifically for you — not another monthly
                             subscription to a platform that mostly doesn't fit. We design and build lightweight
                             applications that handle your specific workflows so you don't have to.
                         </p>
-                        <p style="margin-top: 0.75rem">
+                        <p class="text-[0.9rem] leading-[1.75] text-dusk mt-3">
                             Scheduling. Customer follow-up. Job tracking. Reporting. If it's eating your time, we can
                             build something that handles it for you.
                         </p>
-                        <span class="service-tag">Custom Software</span>
+                        <span class="inline-block mt-5 bg-mist text-dusk text-[0.72rem] tracking-[0.08em] uppercase px-[0.7rem] py-[0.3rem] rounded-[2px] font-semibold">Custom Software</span>
                     </div>
-                    <div class="service-card" style="grid-column: 1 / -1">
-                        <div class="service-num">03</div>
-                        <h3>Already Built Something with AI? We'll Make It Actually Work.</h3>
-                        <p>
+                    <div class="border border-granite rounded-[6px] p-[2.2rem] bg-cloud transition-all duration-[250ms] hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(28,43,53,0.1)] relative col-span-full max-[960px]:col-span-1">
+                        <div class="font-cormorant text-[3.5rem] font-bold text-granite leading-none absolute top-6 right-8">03</div>
+                        <h3 class="font-cormorant text-[1.4rem] font-bold text-slate mb-[0.7rem] leading-[1.2]">Already Built Something with AI? We'll Make It Actually Work.</h3>
+                        <p class="text-[0.9rem] leading-[1.75] text-dusk">
                             Many business owners have already experimented with AI tools; chatbots, workflow tools
                             someone else vibe-coded... It kind of works, but not really. The answers are inconsistent. You
                             are not sure how to get it deployed so others can use it, too. It doesn't know your business.
                             It worked in the demo but fell apart in real life.
                         </p>
-                        <p style="margin-top: 0.75rem">
+                        <p class="text-[0.9rem] leading-[1.75] text-dusk mt-3">
                             We can take whatever you've built, figure out what it's actually supposed to do, and
                             make it reliable. No judgment! AI is genuinely hard to get right. 😥
                         </p>
-                        <p style="margin-top: 0.75rem" class="callout">
+                        <p class="font-cormorant text-[1.4rem] font-bold text-slate mb-[0.7rem] leading-[1.2] mt-3">
                             That's exactly why we're here.
                         </p>
-                        <span class="service-tag">AI &amp; Automation Rescue</span>
+                        <span class="inline-block mt-5 bg-mist text-dusk text-[0.72rem] tracking-[0.08em] uppercase px-[0.7rem] py-[0.3rem] rounded-[2px] font-semibold">AI &amp; Automation Rescue</span>
                     </div>
-                    <div class="service-card" style="grid-column: 1 / -1">
-                        <div class="service-num">+</div>
-                        <h3>We work together, start to finish — however that looks for you</h3>
-                        <p>
+                    <div class="border border-granite rounded-[6px] p-[2.2rem] bg-cloud transition-all duration-[250ms] hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(28,43,53,0.1)] relative col-span-full max-[960px]:col-span-1">
+                        <div class="font-cormorant text-[3.5rem] font-bold text-granite leading-none absolute top-6 right-8">+</div>
+                        <h3 class="font-cormorant text-[1.4rem] font-bold text-slate mb-[0.7rem] leading-[1.2]">We work together, start to finish — however that looks for you</h3>
+                        <p class="text-[0.9rem] leading-[1.75] text-dusk">
                             Most clients come to us for consulting and discover that a small custom tool would save them
                             hours every week. Others need software and find that a better process matters more than
                             better technology. We're flexible, and we'll always tell you which one actually serves your
                             business best. We stay involved as much or as little as you need.
                         </p>
-                        <span class="service-tag">Both, When It Makes Sense</span>
+                        <span class="inline-block mt-5 bg-mist text-dusk text-[0.72rem] tracking-[0.08em] uppercase px-[0.7rem] py-[0.3rem] rounded-[2px] font-semibold">Both, When It Makes Sense</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- HOW IT WORKS -->
-        <section class="how reveal">
-            <div class="how-inner">
-                <div class="section-label">How It Works</div>
-                <h2 class="section-title">From first conversation to lasting change</h2>
-                <p class="section-sub">We keep it simple — because your time is exactly what we're here to protect.</p>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-num">01</div>
-                        <h3>Free Consultation Call</h3>
-                        <p>
+        <section class="how reveal bg-slate px-16 py-24 max-[960px]:px-6 max-[960px]:py-16">
+            <div class="max-w-[1000px] mx-auto">
+                <div class="text-[0.72rem] tracking-[0.18em] uppercase text-lichen font-semibold mb-[0.8rem]">How It Works</div>
+                <h2 class="font-cormorant text-[clamp(2rem,3.5vw,3rem)] font-bold text-snow leading-[1.15] mb-5">From first conversation to lasting change</h2>
+                <p class="text-[1rem] leading-[1.8] text-granite max-w-[580px] font-light">We keep it simple — because your time is exactly what we're here to protect.</p>
+                <div class="grid grid-cols-3 gap-0 mt-14 border border-[rgba(200,212,218,0.15)] rounded-[6px] overflow-hidden max-[960px]:grid-cols-1">
+                    <div class="p-10 pr-8 border-r border-[rgba(200,212,218,0.15)] max-[960px]:border-r-0 max-[960px]:border-b max-[960px]:border-[rgba(200,212,218,0.15)]">
+                        <div class="font-cormorant text-[4rem] font-bold text-[rgba(106,143,75,0.3)] leading-none mb-4">01</div>
+                        <h3 class="font-cormorant text-[1.25rem] font-semibold text-snow mb-[0.6rem]">Free Consultation Call</h3>
+                        <p class="text-[0.88rem] leading-[1.7] text-granite font-light">
                             A no-pressure 30-minute call. Tell us about your business, where you feel stuck, and what
                             "better" would actually look like for you. <strong>We listen more than we talk.</strong> If
                             we don't feel like we will be able to make a meaningful difference in your company, we will
                             tell you right away.
                         </p>
                     </div>
-                    <div class="step">
-                        <div class="step-num">02</div>
-                        <h3>A Plan Tailored to You</h3>
-                        <p>
+                    <div class="p-10 pr-8 border-r border-[rgba(200,212,218,0.15)] max-[960px]:border-r-0 max-[960px]:border-b max-[960px]:border-[rgba(200,212,218,0.15)]">
+                        <div class="font-cormorant text-[4rem] font-bold text-[rgba(106,143,75,0.3)] leading-none mb-4">02</div>
+                        <h3 class="font-cormorant text-[1.25rem] font-semibold text-snow mb-[0.6rem]">A Plan Tailored to You</h3>
+                        <p class="text-[0.88rem] leading-[1.7] text-granite font-light">
                             We come back with a concrete picture of what we'd work on together — what we'd consult on,
                             what we'd build (if anything), what it costs, and what you get back in time and peace of
                             mind.
                         </p>
                     </div>
-                    <div class="step">
-                        <div class="step-num">03</div>
-                        <h3>Real Results, Not Just Advice</h3>
-                        <p>
+                    <div class="p-10 pr-8 max-[960px]:border-0">
+                        <div class="font-cormorant text-[4rem] font-bold text-[rgba(106,143,75,0.3)] leading-none mb-4">03</div>
+                        <h3 class="font-cormorant text-[1.25rem] font-semibold text-snow mb-[0.6rem]">Real Results, Not Just Advice</h3>
+                        <p class="text-[0.88rem] leading-[1.7] text-granite font-light">
                             We execute alongside you — walking your team through new ways of working or building and
                             deploying a custom tool. We're not done until it works in your real world.
                         </p>
@@ -1208,68 +325,66 @@
         </section>
 
         <!-- OUTCOMES -->
-        <section class="outcomes reveal">
-            <div class="outcomes-inner">
-                <div class="outcomes-visual">
-                    <div class="outcomes-card-back"></div>
-                    <div class="outcomes-card-front">
+        <section class="outcomes reveal bg-cloud px-16 py-24 max-[960px]:px-6 max-[960px]:py-16">
+            <div class="max-w-[1100px] mx-auto grid grid-cols-2 gap-20 items-center max-[960px]:grid-cols-1 max-[960px]:gap-8">
+                <div class="relative h-[515px] max-[960px]:h-[600px]">
+                    <div class="absolute top-5 left-5 -right-5 -bottom-5 bg-mist rounded-[8px]"></div>
+                    <div class="absolute inset-0 bg-slate rounded-[8px] p-10 flex flex-col">
                         <div>
-                            <div class="card-title">What changes</div>
-                            <div class="card-heading">More time doing what you're actually good at.</div>
+                            <div class="text-[0.72rem] tracking-[0.15em] uppercase text-lichen font-semibold mb-[0.4rem]">What changes</div>
+                            <div class="font-cormorant text-[1.7rem] text-snow font-bold leading-[1.2]">More time doing what you're actually good at.</div>
                         </div>
-                        <ul class="outcome-list">
-                            <li>Routine tasks that used to take hours start handling themselves</li>
-                            <li>Customer inquiries get answered promptly — even when you're on a job</li>
-                            <li>You stop losing track of leads, follow-ups, and invoices</li>
-                            <li>Your team spends less time on workarounds and more on real work</li>
-                            <li>You have a clearer picture of how your business is actually doing</li>
-                            <li>You go home at the end of the day feeling like the owner again</li>
+                        <ul class="list-none mt-4">
+                            <li class="flex items-start gap-3 py-[0.65rem] border-b border-[rgba(200,212,218,0.12)] text-[0.88rem] text-granite font-light leading-[1.5] before:content-['→'] before:text-lichen before:shrink-0 before:text-[0.85rem] before:mt-[0.05rem]">Routine tasks that used to take hours start handling themselves</li>
+                            <li class="flex items-start gap-3 py-[0.65rem] border-b border-[rgba(200,212,218,0.12)] text-[0.88rem] text-granite font-light leading-[1.5] before:content-['→'] before:text-lichen before:shrink-0 before:text-[0.85rem] before:mt-[0.05rem]">Customer inquiries get answered promptly — even when you're on a job</li>
+                            <li class="flex items-start gap-3 py-[0.65rem] border-b border-[rgba(200,212,218,0.12)] text-[0.88rem] text-granite font-light leading-[1.5] before:content-['→'] before:text-lichen before:shrink-0 before:text-[0.85rem] before:mt-[0.05rem]">You stop losing track of leads, follow-ups, and invoices</li>
+                            <li class="flex items-start gap-3 py-[0.65rem] border-b border-[rgba(200,212,218,0.12)] text-[0.88rem] text-granite font-light leading-[1.5] before:content-['→'] before:text-lichen before:shrink-0 before:text-[0.85rem] before:mt-[0.05rem]">Your team spends less time on workarounds and more on real work</li>
+                            <li class="flex items-start gap-3 py-[0.65rem] border-b border-[rgba(200,212,218,0.12)] text-[0.88rem] text-granite font-light leading-[1.5] before:content-['→'] before:text-lichen before:shrink-0 before:text-[0.85rem] before:mt-[0.05rem]">You have a clearer picture of how your business is actually doing</li>
+                            <li class="flex items-start gap-3 py-[0.65rem] text-[0.88rem] text-granite font-light leading-[1.5] before:content-['→'] before:text-lichen before:shrink-0 before:text-[0.85rem] before:mt-[0.05rem]">You go home at the end of the day feeling like the owner again</li>
                         </ul>
                     </div>
                 </div>
-                <div class="outcomes-text">
-                    <div class="section-label">What You Get Back</div>
-                    <h2 class="section-title">The best investment is in the business you already have.</h2>
-                    <p>
+                <div>
+                    <div class="text-[0.72rem] tracking-[0.18em] uppercase text-lichen font-semibold mb-[0.8rem]">What You Get Back</div>
+                    <h2 class="font-cormorant text-[clamp(2rem,3.5vw,3rem)] font-bold text-slate leading-[1.15] mb-5">The best investment is in the business you already have.</h2>
+                    <p class="text-[1rem] leading-[1.8] text-dusk mb-4 font-light">
                         You don't need a bigger team, a shinier website, or another monthly subscription. In most cases,
                         the businesses we work with already have everything they need — they just need someone to help
                         them use it better.
                     </p>
-                    <p>
-                        <strong>We specialize in the unglamorous work</strong> of making small businesses run more
+                    <p class="text-[1rem] leading-[1.8] text-dusk mb-4 font-light">
+                        <strong class="text-slate font-semibold">We specialize in the unglamorous work</strong> of making small businesses run more
                         smoothly: cleaner workflows, smarter follow-through, and tools that fit how you actually work.
                     </p>
-                    <a href="#contact" class="btn-primary" style="margin-top: 1rem; display: inline-block"
-                        >Start with a Free Call</a
-                    >
+                    <a href="#contact" class="bg-lichen text-white pt-4 pb-[0.9rem] px-[2.2rem] rounded-[3px] text-[0.95rem] font-semibold tracking-[0.03em] no-underline transition-all duration-200 hover:bg-pine hover:-translate-y-0.5 inline-block mt-4">Start with a Free Call</a>
                 </div>
             </div>
         </section>
 
         <!-- ABOUT -->
-        <section class="about reveal" id="about">
-            <div class="about-inner">
-                <img src="/images/me.jpg" alt="Ryan" class="about-photo" />
+        <section class="about reveal bg-snow px-16 py-24 max-[960px]:px-6 max-[960px]:py-16" id="about">
+            <div class="max-w-[900px] mx-auto grid grid-cols-[200px_1fr] gap-16 items-start max-[960px]:grid-cols-1 max-[960px]:gap-8">
+                <img src="/images/me.jpg" alt="Ryan" class="w-[200px] h-[200px] rounded-full object-cover shadow-[0_0_10px_1.5px_rgba(0,0,0,0.1)] block" />
 
-                <div class="about-text">
-                    <div class="section-label">About FarmSoft Studios</div>
-                    <h2 class="section-title"><i>Hello!</i> I'm Ryan.</h2>
-                    <p>
+                <div>
+                    <div class="text-[0.72rem] tracking-[0.18em] uppercase text-lichen font-semibold mb-[0.8rem]">About FarmSoft Studios</div>
+                    <h2 class="font-cormorant text-[clamp(2rem,3.5vw,3rem)] font-bold text-slate leading-[1.15] mb-5"><i>Hello!</i> I'm Ryan.</h2>
+                    <p class="text-[1rem] leading-[1.85] text-dusk mb-4 font-light">
                         FarmSoft Studios is a solo consulting practice based in Northern Colorado. It was founded on a
                         simple premise: local businesses that are genuinely good at what they do shouldn't have to drown
                         in the overhead of running a business — and shouldn't need a large agency to fix it.
                     </p>
-                    <p>
+                    <p class="text-[1rem] leading-[1.85] text-dusk mb-4 font-light">
                         I work directly with every client. No junior staff, no hand-offs. When you work with me,
                         you get a single point of contact who knows your business, understands your
                         constraints, and is accountable for the results.
                     </p>
-                    <p>
+                    <p class="text-[1rem] leading-[1.85] text-dusk mb-4 font-light">
                         Proudly serving the communities of Windsor, Fort Collins, Loveland, and the greater Northern
                         Colorado area.
                     </p>
-                    <span class="location-pill">
-                        <svg viewBox="0 0 20 20" fill="currentColor">
+                    <span class="inline-flex items-center gap-[0.45rem] bg-mist rounded-[20px] px-4 py-[0.4rem] text-[0.8rem] text-dusk font-semibold mt-2">
+                        <svg class="w-[13px] h-[13px] text-lichen" viewBox="0 0 20 20" fill="currentColor">
                             <path
                                 fill-rule="evenodd"
                                 d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -1283,12 +398,12 @@
         </section>
 
         <!-- CONTACT -->
-        <section class="contact reveal" id="contact">
-            <div class="contact-inner">
-                <div class="section-label">Free Consultation</div>
-                <h2 class="section-title">Let's talk about your business.</h2>
-                <div class="free-badge">
-                    <svg viewBox="0 0 20 20" fill="currentColor">
+        <section class="contact reveal bg-slate px-16 py-24 max-[960px]:px-6 max-[960px]:py-16" id="contact">
+            <div class="max-w-[720px] mx-auto">
+                <div class="text-[0.72rem] tracking-[0.18em] uppercase text-lichen font-semibold mb-[0.8rem]">Free Consultation</div>
+                <h2 class="font-cormorant text-[clamp(2rem,3.5vw,3rem)] font-bold text-snow leading-[1.15] mb-5">Let's talk about your business.</h2>
+                <div class="inline-flex items-center gap-2 bg-[rgba(193,127,58,0.15)] border border-[rgba(193,127,58,0.4)] rounded-[3px] px-4 py-2 text-[#d4943f] text-[0.82rem] font-semibold tracking-[0.06em] uppercase mb-6">
+                    <svg class="w-[14px] h-[14px]" viewBox="0 0 20 20" fill="currentColor">
                         <path
                             fill-rule="evenodd"
                             d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -1297,37 +412,37 @@
                     </svg>
                     No cost. No commitment. Just a real conversation.
                 </div>
-                <p class="contact-sub">
+                <p class="text-[1rem] leading-[1.8] text-granite font-light mb-8">
                     Tell us a little about your business and what's been on your mind. We'll reach out within one
                     business day to schedule your free 30-minute call — no sales pitch, no pressure, just a chance to
                     get to know each other and see if there's a fit.
                 </p>
 
                 <form id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+                    <div class="grid grid-cols-2 gap-4 max-[960px]:grid-cols-1">
+                        <div class="flex flex-col gap-[0.4rem] mb-4">
+                            <label for="name" class="text-[0.78rem] font-semibold tracking-[0.06em] uppercase text-granite">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Jane Smith" required class="border border-[rgba(200,212,218,0.2)] rounded-[3px] px-4 py-[0.8rem] font-nunito text-[0.95rem] text-snow bg-[rgba(255,255,255,0.06)] outline-none w-full transition-[border-color,box-shadow] duration-200 placeholder:text-stone placeholder:opacity-70 focus:border-lichen focus:shadow-[0_0_0_3px_rgba(106,143,75,0.18)]" />
                         </div>
-                        <div class="form-group">
-                            <label for="business">Business Name</label>
-                            <input type="text" id="business" name="business" placeholder="Smith's Landscaping" required />
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="jane@example.com" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone (optional)</label>
-                            <input type="tel" id="phone" name="phone" placeholder="(970) 555-0100" />
+                        <div class="flex flex-col gap-[0.4rem] mb-4">
+                            <label for="business" class="text-[0.78rem] font-semibold tracking-[0.06em] uppercase text-granite">Business Name</label>
+                            <input type="text" id="business" name="business" placeholder="Smith's Landscaping" required class="border border-[rgba(200,212,218,0.2)] rounded-[3px] px-4 py-[0.8rem] font-nunito text-[0.95rem] text-snow bg-[rgba(255,255,255,0.06)] outline-none w-full transition-[border-color,box-shadow] duration-200 placeholder:text-stone placeholder:opacity-70 focus:border-lichen focus:shadow-[0_0_0_3px_rgba(106,143,75,0.18)]" />
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="location">Your City</label>
-                            <select id="location" name="location">
+                    <div class="grid grid-cols-2 gap-4 max-[960px]:grid-cols-1">
+                        <div class="flex flex-col gap-[0.4rem] mb-4">
+                            <label for="email" class="text-[0.78rem] font-semibold tracking-[0.06em] uppercase text-granite">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="jane@example.com" required class="border border-[rgba(200,212,218,0.2)] rounded-[3px] px-4 py-[0.8rem] font-nunito text-[0.95rem] text-snow bg-[rgba(255,255,255,0.06)] outline-none w-full transition-[border-color,box-shadow] duration-200 placeholder:text-stone placeholder:opacity-70 focus:border-lichen focus:shadow-[0_0_0_3px_rgba(106,143,75,0.18)]" />
+                        </div>
+                        <div class="flex flex-col gap-[0.4rem] mb-4">
+                            <label for="phone" class="text-[0.78rem] font-semibold tracking-[0.06em] uppercase text-granite">Phone (optional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(970) 555-0100" class="border border-[rgba(200,212,218,0.2)] rounded-[3px] px-4 py-[0.8rem] font-nunito text-[0.95rem] text-snow bg-[rgba(255,255,255,0.06)] outline-none w-full transition-[border-color,box-shadow] duration-200 placeholder:text-stone placeholder:opacity-70 focus:border-lichen focus:shadow-[0_0_0_3px_rgba(106,143,75,0.18)]" />
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 max-[960px]:grid-cols-1">
+                        <div class="flex flex-col gap-[0.4rem] mb-4">
+                            <label for="location" class="text-[0.78rem] font-semibold tracking-[0.06em] uppercase text-granite">Your City</label>
+                            <select id="location" name="location" class="border border-[rgba(200,212,218,0.2)] rounded-[3px] px-4 py-[0.8rem] font-nunito text-[0.95rem] text-snow bg-[rgba(255,255,255,0.06)] outline-none w-full transition-[border-color,box-shadow] duration-200 focus:border-lichen focus:shadow-[0_0_0_3px_rgba(106,143,75,0.18)] [&_option]:bg-deep [&_option]:text-snow">
                                 <option value="">Select your area…</option>
                                 <option>Fort Collins</option>
                                 <option>Loveland</option>
@@ -1336,28 +451,30 @@
                                 <option>Other...</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="biztype">Type of Business</label>
-                            <input type="text" id="biztype" name="biztype" placeholder="e.g. Landscaping, Restaurant, HVAC…" />
+                        <div class="flex flex-col gap-[0.4rem] mb-4">
+                            <label for="biztype" class="text-[0.78rem] font-semibold tracking-[0.06em] uppercase text-granite">Type of Business</label>
+                            <input type="text" id="biztype" name="biztype" placeholder="e.g. Landscaping, Restaurant, HVAC…" class="border border-[rgba(200,212,218,0.2)] rounded-[3px] px-4 py-[0.8rem] font-nunito text-[0.95rem] text-snow bg-[rgba(255,255,255,0.06)] outline-none w-full transition-[border-color,box-shadow] duration-200 placeholder:text-stone placeholder:opacity-70 focus:border-lichen focus:shadow-[0_0_0_3px_rgba(106,143,75,0.18)]" />
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">What's taking up time that shouldn't be?</label>
+                    <div class="flex flex-col gap-[0.4rem] mb-4">
+                        <label for="message" class="text-[0.78rem] font-semibold tracking-[0.06em] uppercase text-granite">What's taking up time that shouldn't be?</label>
                         <textarea
                             id="message"
                             name="message"
                             placeholder="Tell us what's been frustrating, where you feel stuck, or what you wish ran better in your business…"
                             required
+                            class="border border-[rgba(200,212,218,0.2)] rounded-[3px] px-4 py-[0.8rem] font-nunito text-[0.95rem] text-snow bg-[rgba(255,255,255,0.06)] outline-none w-full transition-[border-color,box-shadow] duration-200 placeholder:text-stone placeholder:opacity-70 focus:border-lichen focus:shadow-[0_0_0_3px_rgba(106,143,75,0.18)] resize-y min-h-[120px]"
                         ></textarea>
                     </div>
-                    <button type="submit" class="form-submit">Request My Free Consultation Call →</button>
-                    <p class="form-note">🔒 Your information stays private. We never share or sell contact details.</p>
-                    <p class="form-error" id="formError" style="display:none; color:#ff6b6b; margin-top:0.75rem;"></p>
+                    <div id="contactTurnstile" data-sitekey="0x4AAAAAAGPoLSvoX_4NI56k"></div>
+                    <button type="submit" class="form-submit w-full py-4 bg-lichen text-white border-none rounded-[3px] font-nunito text-[1rem] font-bold tracking-[0.04em] cursor-pointer mt-2 transition-all duration-200 hover:bg-pine hover:-translate-y-px">Request My Free Consultation Call →</button>
+                    <p class="text-center text-[0.78rem] text-stone mt-3">🔒 Your information stays private. We never share or sell contact details. <a class="underline text-lichen" href="https://www.cloudflare.com/turnstile-privacy-policy/">We use Cloudflare Turnstile to prevent spam.</a></p>
+                    <p class="form-error text-[#ff6b6b] mt-3" id="formError" role="alert" style="display:none;"></p>
                 </form>
 
-                <div class="success-msg" id="successMsg">
-                    <h3>We'll be in touch soon.</h3>
-                    <p>
+                <div class="hidden bg-[rgba(106,143,75,0.12)] border border-[rgba(106,143,75,0.35)] rounded-[6px] p-10 text-center" id="successMsg">
+                    <h3 class="font-cormorant text-[1.6rem] text-snow mb-[0.6rem]">We'll be in touch soon.</h3>
+                    <p class="text-granite font-light">
                         Thanks for reaching out. Expect a response within one business day to set up your free call.
                         Looking forward to hearing about what you've built.
                     </p>
@@ -1366,21 +483,21 @@
         </section>
 
         <!-- FOOTER -->
-        <footer>
-            <div class="footer-brand">
-                <img src="/images/fss_logo.svg" alt="FarmSoft Studios" class="footer-logo-img" />
+        <footer class="bg-[#111d24] text-stone py-8 px-16 flex items-center justify-between flex-wrap gap-4 max-[960px]:flex-col max-[960px]:text-center max-[960px]:px-6">
+            <div class="font-cormorant text-[1.1rem] font-semibold text-snow flex items-center gap-[0.6rem]">
+                <img src="/images/fss_logo.svg" alt="FarmSoft Studios" class="h-9 w-9 rounded-full block" />
                 FarmSoft Studios
             </div>
-            <div class="footer-copy">© 2026 FarmSoft Studios. Serving Windsor, Fort Collins & Loveland, CO.</div>
-            <a href="mailto:hello@farmsoftstudios.com">hello@farmsoftstudios.com</a>
-            <div class="footer-social">
-                <a href="https://www.facebook.com/profile.php?id=61589296353556" target="_blank" rel="noopener" aria-label="Facebook">
-                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <div class="text-[0.78rem]">© 2026 FarmSoft Studios. Serving Windsor, Fort Collins &amp; Loveland, CO.</div>
+            <a href="mailto:hello@farmsoftstudios.com" class="text-lichen no-underline">hello@farmsoftstudios.com</a>
+            <div class="flex items-center gap-4">
+                <a href="https://www.facebook.com/profile.php?id=61589296353556" target="_blank" rel="noopener" aria-label="Facebook" class="flex items-center justify-center text-stone transition-colors duration-200 hover:text-snow">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                     </svg>
                 </a>
-                <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" class="flex items-center justify-center text-stone transition-colors duration-200 hover:text-snow">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                         <rect x="2" y="9" width="4" height="12"/>
                         <circle cx="4" cy="4" r="2"/>
@@ -1399,34 +516,59 @@
             );
             document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
+            const turnstileContainer = document.getElementById("contactTurnstile");
+            const turnstileSiteKey = turnstileContainer.dataset.sitekey;
+            const errorEl = document.getElementById("formError");
+            let turnstileWidgetId;
+
+            function showFormError(message) {
+                errorEl.textContent = message;
+                errorEl.style.display = "block";
+            }
+
+            window.onContactTurnstileLoad = () => {
+                turnstileWidgetId = window.turnstile.render(turnstileContainer, {
+                    sitekey: turnstileSiteKey,
+                    action: "contact",
+                });
+            };
+
             document.getElementById("contactForm").addEventListener("submit", async function (e) {
                 e.preventDefault();
                 const form = this;
                 const submitBtn = form.querySelector(".form-submit");
-                const errorEl = document.getElementById("formError");
+                if (submitBtn.disabled) return;
                 const originalLabel = submitBtn.textContent;
 
                 errorEl.style.display = "none";
                 errorEl.textContent = "";
+                const formData = new FormData(form);
+                if (!formData.get("cf-turnstile-response")) {
+                    showFormError(turnstileWidgetId === undefined
+                        ? "Verification is unavailable. Try again or email hello@farmsoftstudios.com."
+                        : "Verification is still pending. Please try again in a moment.");
+                    return;
+                }
+
                 submitBtn.disabled = true;
                 submitBtn.textContent = "Sending…";
 
                 try {
                     const response = await fetch(
                         "https://farmsoftstudios-cf-mailer.farmsoft-studios.workers.dev",
-                        { method: "POST", body: new FormData(form) },
+                        { method: "POST", body: formData },
                     );
                     if (!response.ok) throw new Error("Request failed: " + response.status);
                     form.style.display = "none";
                     document.getElementById("successMsg").style.display = "block";
                 } catch (err) {
+                    if (turnstileWidgetId !== undefined) window.turnstile.reset(turnstileWidgetId);
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalLabel;
-                    errorEl.textContent =
-                        "Something went wrong. Please try again or email hello@farmsoftstudios.com.";
-                    errorEl.style.display = "block";
+                    showFormError("Something went wrong. Please try again or email hello@farmsoftstudios.com.");
                 }
             });
         </script>
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&amp;onload=onContactTurnstileLoad" defer></script>
     </body>
 </html>
